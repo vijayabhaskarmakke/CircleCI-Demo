@@ -15,8 +15,7 @@ jobs:
       - run:
             name: Configure  Jfrog CLI
             command: |
-              jfrog config add artifactory-server --url="https://akarshagarwal.jfrog.io" --user="akarshagarwal99@gmail.com" 
-    --password="Asdf@1234" --interactive=false
+              jfrog config add artifactory-server --url="https://akarshagarwal.jfrog.io" --user="akarshagarwal99@gmail.com" --password="Asdf@1234" --interactive=false
       - run:
             name: Docker Build
             command: |
