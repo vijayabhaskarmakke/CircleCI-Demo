@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: "circleci/python:3.6.4"
     steps:
+      - setup_remote_docker
       - checkout
       - run:
             name: Install Jfrog CLI
@@ -25,14 +26,13 @@ jobs:
       - run:
             name: Docker Build
             command: |
-              systemctl start docker
               docker login -u akarshagarwal99@gmail.com -p Asdf@1234 akarshagarwal.jfrog.io
       - run:
             name: Docker Push to Jfrog  Registry
             command: |
-              sudo docker build . -t akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
-              sudo jf docker scan akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM} --watches admin
-              sudo docker push akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
+              docker build . -t akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
+              jf docker scan akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM} --watches admin
+              docker push akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
   test:
     working_directory: ~/circleci-python
     docker:
