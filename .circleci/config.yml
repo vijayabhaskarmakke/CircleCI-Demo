@@ -25,6 +25,7 @@ jobs:
       - run:
             name: Docker Build
             command: |
+              sudo systemctl status docker
               sudo docker login -u akarshagarwal99@gmail.com -p Asdf@1234 akarshagarwal.jfrog.io
       - run:
             name: Docker Push to Jfrog  Registry
