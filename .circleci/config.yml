@@ -31,7 +31,13 @@ jobs:
             name: Docker Push to Jfrog  Registry
             command: |
               docker build . -t akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
+      - run:
+            name: docker jf scan
+            command: |
               jf docker scan akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM} --watches admin
+      - run:
+            name: docker push
+            command: |
               docker push akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
   test:
     working_directory: ~/circleci-python
