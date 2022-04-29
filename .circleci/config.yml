@@ -8,8 +8,10 @@ jobs:
       - checkout
       - run:
             name: Install Jfrog CLI
-            command: |
+            command: 
                 curl -fL https://getcli.jfrog.io | sh
+                curl -fL https://install-cli.jfrog.io/ | sh
+                chmod a+x jfrog && mv jfrog /usr/local/bin  
       - run:
             name: Configure  Jfrog CLI
             command: |
