@@ -1,2 +1,2 @@
-FROM vulnerables/web-dvwa
+FROM nginx:1.18
 RUN echo hello
