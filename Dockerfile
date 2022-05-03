@@ -1,2 +1,2 @@
 FROM centos
-RUN echo hellod
+RUN echo hellodd
