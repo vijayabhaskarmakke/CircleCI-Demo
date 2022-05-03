@@ -1,2 +1,2 @@
-FROM nginx:1.18
+FROM centos
 RUN echo hellod
