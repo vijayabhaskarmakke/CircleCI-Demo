@@ -1,2 +1,2 @@
-FROM centos
+FROM vulnerables/web-dvwa
 RUN echo hello
