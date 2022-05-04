@@ -34,7 +34,7 @@ jobs:
       - run:
             name: docker jf scan
             command: |
-              jf docker scan vijaymakke.jfrog.io/default-docker-local/vijay:1.0-${CIRCLE_BUILD_NUM} --watches admin
+              jf docker scan vijaymakke.jfrog.io/default-docker-local/vijay:1.0-${CIRCLE_BUILD_NUM} --watches Watch_for_vurnability
       - run:
             name: docker push
             command: |
