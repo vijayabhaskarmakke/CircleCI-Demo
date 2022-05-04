@@ -22,23 +22,23 @@ jobs:
       - run:
             name: Configure  Jfrog CLI
             command: |
-              jfrog config add artifactory-server --url="https://akarshagarwal.jfrog.io" --user="akarshagarwal99@gmail.com" --password="Asdf@1234" --interactive=false
+              jfrog config add artifactory-server --url="https://vijaymakke.jfrog.io" --user="vijayabhaskarmakke@gmail.com" --password="Persistent@12345$" --interactive=false
       - run:
             name: Docker Build
             command: |
-              docker login -u akarshagarwal99@gmail.com -p Asdf@1234 akarshagarwal.jfrog.io
+              docker login -u vijayabhaskarmakke@gmail.com -p Persistent@12345$ vijaymakke.jfrog.io
       - run:
             name: Docker Push to Jfrog  Registry
             command: |
-              docker build . -t akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
+              docker build . -t vijaymakke.jfrog.io/default-docker-local/vijay:1.0-${CIRCLE_BUILD_NUM}
       - run:
             name: docker jf scan
             command: |
-              jf docker scan akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM} --watches admin
+              jf docker scan vijaymakke.jfrog.io/default-docker-local/vijay:1.0-${CIRCLE_BUILD_NUM} --watches admin
       - run:
             name: docker push
             command: |
-              docker push akarshagarwal.jfrog.io/default-docker-local/akarsh:1.0-${CIRCLE_BUILD_NUM}
+              docker push vijaymakke.jfrog.io/default-docker-local/vijay:1.0-${CIRCLE_BUILD_NUM}
   test:
     working_directory: ~/circleci-python
     docker:
